@@ -42,7 +42,9 @@ const displayNewsDetails = (newses) => {
       <div class="card-body">
         <h5 class="card-title">${news.title}</h5>
         <p class="card-text">${news.details}</p>
-        <div class="display-flex">
+    <div class="d-flex align-items-center justify-content-between">
+        <div>
+        <div class="d-flex align-items-center">
         <div>
         <img class="img-thumbnail rounded-5 img-fluid size" src = "${news.author.img}">
         </div>
@@ -50,7 +52,20 @@ const displayNewsDetails = (newses) => {
         <p class="mb-0">${news.author.name}</p>
         <p class="mb-0">${news.author.published_date}</p></div>
         </div>
+        </div> 
+
+      <div><i class="fa-regular fa-eye"></i><span class="ms-2">${news.total_view}</span></div>
+      <div>
+      <i class="fa-regular fa-star-half-stroke"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
       </div>
+      <div><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </div>
+    
     </div>
   </div>
     `;
