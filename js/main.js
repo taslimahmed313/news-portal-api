@@ -36,17 +36,21 @@ const displayNewsDetails = (newses) => {
     newsDiv.innerHTML = `
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="${news.thumbnail_url}" class="img-fluid w-100 height-control rounded-start" alt="...">
+      <img src="${
+        news.thumbnail_url
+      }" class="img-fluid w-100 height-control rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">${news.title}</h5>
-        <p class="card-text">${news.details}</p>
+        <p class="card-text">${news.details.slice(0, 300)}...</p>
     <div class="d-flex align-items-center justify-content-between">
         <div>
         <div class="d-flex align-items-center">
         <div>
-        <img class="img-thumbnail rounded-5 img-fluid size" src = "${news.author.img}">
+        <img class="img-thumbnail rounded-5 img-fluid size" src = "${
+          news.author.img
+        }">
         </div>
         <div class="ms-2">
         <p class="mb-0">${news.author.name}</p>
@@ -54,7 +58,9 @@ const displayNewsDetails = (newses) => {
         </div>
         </div> 
 
-      <div><i class="fa-regular fa-eye"></i><span class="ms-2">${news.total_view}</span></div>
+      <div><i class="fa-regular fa-eye"></i><span class="ms-2">${
+        news.total_view
+      }</span></div>
       <div>
       <i class="fa-regular fa-star-half-stroke"></i>
       <i class="fa-regular fa-star"></i>
@@ -62,7 +68,11 @@ const displayNewsDetails = (newses) => {
       <i class="fa-regular fa-star"></i>
       <i class="fa-regular fa-star"></i>
       </div>
-      <div><i class="fa-solid fa-arrow-right"></i></div>
+      <div>
+      <i class="fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick = "loadNewsDetailsModal('${
+        news._id}')"></i>
+      </div>
+      
       </div>
     </div>
     
@@ -73,4 +83,22 @@ const displayNewsDetails = (newses) => {
   });
 };
 
+const loadNewsDetailsModal = (id) =>{
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => displayModalNewsDetails(data.data));
+}
+
+const displayModalNewsDetails = newses =>{
+    // console.log(newses);
+    newses.forEach(news =>{
+        console.log(news);
+        const newsModalTitle = document.getElementById("exampleModalLabel");
+        newsModalTitle.innerText = `${news.title}`;
+        const newsModalDetails = document.getElementById("news-details-modal");
+        newsModalDetails.innerText = `${news.details}`;
+    })
+}
+// loadNewsDetailsModal();
 loadNewsCategories();
