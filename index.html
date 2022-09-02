@@ -15,6 +15,10 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .hover:hover {
+        color: orangered;
+      }
+
       .size {
         width: 50px;
         height: 50px;
@@ -45,11 +49,22 @@
     <!------------------------------ Header Ends Here -------------------------->
     <!--------------------------- Main Part Starts Here ------------------------>
     <main>
+      <!-- News Categories Starts Here -->
       <section class="mx-3">
         <div id="news-container" class="text-center">
           <span class="me-3">Home</span>
         </div>
       </section>
+      <!-- News Categories Ends Here -->
+      <!-- No News Found Message Starts Here -->
+      <section>
+        <div id="no-news-message" class="mt-4 d-none">
+          <h3 class="text-center text-info">
+            No News Found !! Please Try Again Later.
+          </h3>
+        </div>
+      </section>
+      <!-- No News Found Message Ends Here -->
       <section id="news-details-container" class="m-5">
         <!-- <div ></div> -->
       </section>
