@@ -11,7 +11,7 @@ const displayNewsCategories = (newses) => {
   console.log(newses);
   const newsContainer = document.getElementById("news-container");
   newses.forEach((news) => {
-    console.log(news);
+    // console.log(news);
     const newsSpan = document.createElement("span");
     newsSpan.classList.add("mx-3");
     newsSpan.innerHTML = `
@@ -31,7 +31,11 @@ const loadNewsDetails = (id) => {
 
 // Display News Details..........................................................
 const displayNewsDetails = (newses) => {
-  console.log(newses);
+  // console.log(newses);
+
+  // Total News.................................................................
+  const newsLength = document.getElementById("news-length");
+  newsLength.innerText = `${newses.length} found for Category`;
 
   //   'No News found' -message...............................................
   const newsMessage = document.getElementById("no-news-message");
@@ -49,18 +53,20 @@ const displayNewsDetails = (newses) => {
   newses.forEach((news) => {
     console.log(news);
     const newsDiv = document.createElement("div");
-    newsDiv.classList.add("card", "mb-3", "px-2");
+    newsDiv.classList.add("col-lg-12", "card", "col-12");
+
+    // Set The News With Inner HTML............................................
     newsDiv.innerHTML = `
-  <div class="row g-0 d-flex align-items-center">
-    <div class="col-md-3 col-4">
+      <div class="row g-0  align-items-center">
+    <div class="col-md-4 col-lg-3">
       <img src="${
         news.thumbnail_url
       }" class="img-fluid w-100 height-control rounded-start" alt="...">
     </div>
-    <div class="col-md-9 col-8">
+    <div class="col-md-8 col-lg-9">
       <div class="card-body">
-        <h5 class="card-title">${news.title}</h5>
-        <p class="card-text">${news.details.slice(0, 250)}...</p>
+        <h6 class="card-title">${news.title}</h6>
+        <p class="card-text">${news.details.slice(0, 260)}...</p>
     <div class="d-flex align-items-center justify-content-between">
         <div>
         <div class="d-flex align-items-center">
@@ -73,14 +79,14 @@ const displayNewsDetails = (newses) => {
         <p class="mb-0">${
           news.author.name ? news.author.name : "Mr. No Data"
         }</p>
-        <p class="mb-0">${news.author.published_date.slice(0, 11)}</p></div>
+        </div>
         </div>
         </div> 
 
       <div><i class="fa-regular fa-eye"></i><span class="ms-2">${
         news.total_view ? news.total_view : "No view"
       }</span></div>
-      <div>
+      <div class="d-none d-sm-block">
       <i class="fa-regular fa-star-half-stroke"></i>
       <i class="fa-regular fa-star"></i>
       <i class="fa-regular fa-star"></i>
@@ -93,11 +99,12 @@ const displayNewsDetails = (newses) => {
       }')"></i>
       </div>
       
+      
       </div>
     </div>
     
     </div>
-  </div>
+  </div> 
     `;
     newsDetailsContainer.appendChild(newsDiv);
   });

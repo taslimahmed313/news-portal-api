@@ -15,24 +15,33 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      #bg-color {
+        background: #f8f4f4;
+      }
+      .particular-news {
+        width: 100%;
+        background-color: white;
+        height: 50px;
+        padding: 12px;
+        border-radius: 10px;
+      }
       .hover:hover {
         color: orangered;
       }
-
       .img-size {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
       }
       /* .display-flex {
         display: flex;
         align-items: center;
       } */
       .height-control {
-        height: 30vh;
+        height: 180px;
       }
     </style>
   </head>
-  <body>
+  <body id="bg-color">
     <!------------------------------ Header Starts Here ------------------------>
     <header class="m-5">
       <nav class="d-flex align-items-center justify-content-between">
@@ -51,11 +60,14 @@
     <main>
       <!-- News Categories Starts Here -->
       <section class="mx-3">
-        <div id="news-container" class="text-center">
-          <span class="me-3">Home</span>
-        </div>
+        <div id="news-container" class="text-center"></div>
       </section>
       <!-- News Categories Ends Here -->
+      <!------------------- Total News Number Starts Here -------------------->
+      <section class="m-5">
+        <div id="news-length" class="particular-news h6"></div>
+      </section>
+      <!--------------------- Total News Number Ends Here ------------------->
       <!-- No News Found Message Starts Here -->
       <section>
         <div id="no-news-message" class="mt-4 d-none">
@@ -64,9 +76,10 @@
           </h3>
         </div>
       </section>
+
       <!-- No News Found Message Ends Here -->
-      <section id="news-details-container" class="m-5">
-        <!-- <div ></div> -->
+      <section class="m-5">
+        <div id="news-details-container" class="row g-lg-3 g-3"></div>
       </section>
       <!--------------------------- News Details Modal Start Here ------------->
       <section>
@@ -97,9 +110,6 @@
                   data-bs-dismiss="modal"
                 >
                   Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Save changes
                 </button>
               </div>
             </div>
