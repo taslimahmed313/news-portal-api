@@ -3,7 +3,8 @@ const loadNewsCategories = () => {
   const url = `https://openapi.programming-hero.com/api/news/categories`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayNewsCategories(data.data.news_category));
+    .then((data) => displayNewsCategories(data.data.news_category))
+    .catch( error => console.log(error))
 };
 
 // Display News Categories......................................................
@@ -29,7 +30,8 @@ const loadNewsDetails = (id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayNewsDetails(data.data));
+    .then((data) => displayNewsDetails(data.data))
+    .catch((error) => console.log(error));
 };
 
 // Display News Details..........................................................
@@ -131,7 +133,8 @@ const loadNewsDetailsModal = (id) => {
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayModalNewsDetails(data.data));
+    .then((data) => displayModalNewsDetails(data.data))
+    .catch((error) => console.log(error));
 };
 
 // Display Modal News...........................................................

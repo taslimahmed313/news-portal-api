@@ -10,8 +10,13 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <style>
+      #bg-color {
+        background: #f8f4f4;
+      }
+    </style>
   </head>
-  <body>
+  <body id="bg-color">
     <!------------------------------ Header Starts Here ------------------------>
     <header class="m-5">
       <nav class="d-flex align-items-center justify-content-between">
@@ -33,14 +38,14 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button
-                class="accordion-button"
+                class="accordion-button fw-semibold"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                Accordion Item #1
+                Var, Let, and Const - What's the Difference?
               </button>
             </h2>
             <div
@@ -50,29 +55,35 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <strong>Var-</strong> Var declarations are globally scoped or
+                function scoped. That means if a variable is declared with var
+                outside a function then it is in the global scope(accessible
+                anywhere). Otherwise, if they are inside a function we can only
+                access them inside the function. <br />
+                <strong>Let-</strong>let is a block-scoped variable and we
+                cannot re-declared but can be updated(re-assigned)that is why it
+                throws an error and variables that are declared with let and
+                const in block statements( if-else, while, for loop, etc..) are
+                not accessible anywhere. <br />
+                <strong>Const-</strong>
+                const variables cannot be updated or re-declared. It maintains
+                the constant values.Unlike var and let, if we are using const
+                then it must be initialized at the same time when we declared
+                the variable.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button
-                class="accordion-button collapsed"
+                class="accordion-button collapsed fw-semibold"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                Accordion Item #2
+                The Difference Between Regular Functions and Arrow Functions
               </button>
             </h2>
             <div
@@ -82,29 +93,33 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <strong
+                  >An arrow function isn’t the same as a normal
+                  function.</strong
+                >
+                Arguments objects are not available in arrow functions, but are
+                available in regular functions.Arrow functions (and methods) are
+                only callable i.e arrow functions can never be used as
+                constructor functions. Hence, they can never be invoked with the
+                new keyword.I hope you understand that arrow function do not
+                replace regular functions in all the cases. Here are few cases
+                where you shouldn't look at arrow function,This is an ideal
+                location for an arrow function, especially if your resulting
+                function is stateful, referencing something in your object.
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
               <button
-                class="accordion-button collapsed"
+                class="accordion-button collapsed fw-semibold"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                Accordion Item #3
+                Why do we use template string in Javascript?
               </button>
             </h2>
             <div
@@ -114,15 +129,15 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <strong>Template strings are a powerful</strong> feature of
+                modern JavaScript released in ES6. It lets us insert/interpolate
+                variables and expressions into strings without needing to
+                concatenate like in older versions of JavaScript. It allows us
+                to create strings that are complex and contain dynamic elements.
+                Another great thing that comes with template strings are tags.
+                Tags are functions that take a string and the decomposed parts
+                of the string as parameters and are great for converting strings
+                to different entities.
               </div>
             </div>
           </div>
