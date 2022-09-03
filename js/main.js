@@ -23,6 +23,9 @@ const displayNewsCategories = (newses) => {
 
 // Load News Details.............................................................
 const loadNewsDetails = (id) => {
+  // Spinner Loading Start
+  toggleSpinner(true);
+
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -35,7 +38,7 @@ const displayNewsDetails = (newses) => {
 
   // Total News.................................................................
   const newsLength = document.getElementById("news-length");
-  newsLength.innerText = `${newses.length} found for Category`;
+  newsLength.innerText = `${newses.length} Newses found for This Category`;
 
   //   'No News found' -message...............................................
   const newsMessage = document.getElementById("no-news-message");
@@ -108,7 +111,20 @@ const displayNewsDetails = (newses) => {
     `;
     newsDetailsContainer.appendChild(newsDiv);
   });
+
+  // Spinner Loading Stope------------------------------------------------------
+  toggleSpinner(false);
 };
+
+const toggleSpinner = (isLoading) => {
+  const loader = document.getElementById("loader");
+  if (isLoading) {
+    loader.classList.remove("d-none");
+  } else {
+    loader.classList.add("d-none");
+  }
+};
+
 
 // Load Modal News..............................................................
 const loadNewsDetailsModal = (id) => {

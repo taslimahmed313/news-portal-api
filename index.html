@@ -68,7 +68,7 @@
         <div id="news-length" class="particular-news h6"></div>
       </section>
       <!--------------------- Total News Number Ends Here ------------------->
-      <!-- No News Found Message Starts Here -->
+      <!-------------------- No News Found Message Starts Here ----------------->
       <section>
         <div id="no-news-message" class="mt-4 d-none">
           <h3 class="text-center text-info">
@@ -76,8 +76,19 @@
           </h3>
         </div>
       </section>
-
-      <!-- No News Found Message Ends Here -->
+      <!--------------------- No News Found Message Ends Here ------------------>
+      <!-------------------------------- Spinner Starts Here----------------- -->
+      <section id="loader" class="d-none">
+        <div
+          style="height: 200px"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
+      <!-------------------------------- Spinner Ends Here------------------ -->
       <section class="m-5">
         <div id="news-details-container" class="row g-lg-3 g-3"></div>
       </section>
