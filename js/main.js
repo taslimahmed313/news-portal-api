@@ -9,7 +9,7 @@ const loadNewsCategories = () => {
 
 // Display News Categories......................................................
 const displayNewsCategories = (newses) => {
-  console.log(newses);
+  // console.log(newses);
   const newsContainer = document.getElementById("news-container");
   newses.forEach((news) => {
     // console.log(news);
@@ -37,7 +37,11 @@ const loadNewsDetails = (id) => {
 // Display News Details..........................................................
 const displayNewsDetails = (newses) => {
   // console.log(newses);
-
+  // Sorting With View----------------------------------------------------------
+  console.log(newses);
+  newses.sort((a, b) => {
+    return b.total_view - a.total_view;
+  });
   // Total News.................................................................
   const newsLength = document.getElementById("news-length");
   newsLength.innerText = `${newses.length} Newses found for This Category`;
@@ -56,7 +60,7 @@ const displayNewsDetails = (newses) => {
   );
   newsDetailsContainer.textContent = "";
   newses.forEach((news) => {
-    console.log(news);
+    // console.log(news);
     const newsDiv = document.createElement("div");
     newsDiv.classList.add("col-lg-12", "card", "col-12");
 
@@ -118,6 +122,7 @@ const displayNewsDetails = (newses) => {
   toggleSpinner(false);
 };
 
+// Spinner Function--------------------------------------------------------------
 const toggleSpinner = (isLoading) => {
   const loader = document.getElementById("loader");
   if (isLoading) {
