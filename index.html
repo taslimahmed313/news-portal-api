@@ -14,48 +14,21 @@
       src="https://kit.fontawesome.com/326177dd49.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      #bg-color {
-        background: #f8f4f4;
-      }
-      #move-to-blogs:hover {
-        color: tomato;
-      }
-      .particular-news {
-        width: 100%;
-        background-color: white;
-        height: 50px;
-        padding: 12px;
-        border-radius: 10px;
-      }
-      .hover:hover {
-        color: orangered;
-      }
-      .message-color {
-        color: red;
-      }
-      .img-size {
-        width: 40px;
-        height: 40px;
-      }
-      /* .display-flex {
-        display: flex;
-        align-items: center;
-      } */
-      .height-control {
-        height: 180px;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style></style>
   </head>
   <body id="bg-color">
     <!------------------------------ Header Starts Here ------------------------>
     <header class="m-5">
       <nav class="d-flex align-items-center justify-content-between">
         <div>
-          <h4>News Hub</h4>
+          <h4>
+            <span class="brand">News</span>
+            <span style="color: tomato">Hub</span>
+          </h4>
         </div>
         <div class="d-flex">
-          <p class="me-5">News</p>
+          <p class="me-5" style="color: tomato">News</p>
           <p id="move-to-blogs">Blogs</p>
         </div>
       </nav>
@@ -78,7 +51,7 @@
       <section class="m-5">
         <div>
           <p>
-            Sort by View :
+            Sort By View :
             <button
               class="ms-2 bg-white border-0 rounded"
               style="color: rgb(163, 148, 148)"
@@ -104,7 +77,7 @@
           style="height: 200px"
           class="d-flex justify-content-center align-items-center"
         >
-          <div class="spinner-border" role="status">
+          <div class="spinner-border" role="status" style="color: tomato">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
@@ -120,6 +93,7 @@
         <!-- Modal -->
         <div
           class="modal fade"
+          style="color: #776d6d"
           id="newsModal"
           tabindex="-1"
           aria-labelledby="newsModalLabel"
@@ -128,7 +102,13 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="newsModalLabel">Modal title</h5>
+                <h5
+                  class="modal-title"
+                  style="color: #1c1a1a"
+                  id="newsModalLabel"
+                >
+                  Modal title
+                </h5>
                 <button
                   type="button"
                   class="btn-close"
@@ -140,7 +120,8 @@
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  style="background: tomato"
+                  class="btn text-white"
                   data-bs-dismiss="modal"
                 >
                   Close

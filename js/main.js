@@ -71,7 +71,10 @@ const displayNewsDetails = (newses) => {
       <div class="col-md-8 col-lg-9">
         <div class="card-body">
           <h6 class="card-title">${news.title}</h6>
-          <p class="card-text">${news.details.slice(0, 260)}...</p>
+          <p class="card-text" style="color: #776d6d">${news.details.slice(
+            0,
+            260
+          )}...</p>
           <div class="d-flex align-items-center justify-content-between">
           <div>
           <div class="d-flex align-items-center">
@@ -100,7 +103,7 @@ const displayNewsDetails = (newses) => {
       <i class="fa-regular fa-star"></i>
       </div>
       <div>
-      <i class="fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#newsModal" onclick = "loadNewsDetailsModal('${
+      <i class="fa-solid fa-arrow-right" style="color:tomato" data-bs-toggle="modal" data-bs-target="#newsModal" onclick = "loadNewsDetailsModal('${
         news._id
       }')"></i>
       </div>
@@ -138,10 +141,42 @@ const loadNewsDetailsModal = (id) => {
 // Display Modal News Details...................................................
 const displayModalNewsDetails = (newses) => {
   newses.forEach((news) => {
+    console.log(news);
     const newsModalTitle = document.getElementById("newsModalLabel");
     newsModalTitle.innerText = `${news.title}`;
     const newsModalDetails = document.getElementById("news-details-modal");
-    newsModalDetails.innerText = `${news.details}`;
+    newsModalDetails.innerHTML = `
+      <p>${news.details}</p>
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+          <div class="d-flex align-items-center">
+          <div>
+            <img class="img-thumbnail rounded-5 img-fluid img-size" src = "${
+              news.author.img
+            }">
+          </div>
+          <div class="ms-2">
+            <p class="mb-0">${
+              news.author.name ? news.author.name : "No Author Found"
+            }
+            </p>
+          </div>
+        </div>
+      </div> 
+      <div><i class="fa-regular fa-eye"></i><span class="ms-2">${
+        news.total_view ? news.total_view : "No view"
+      }</span>
+      </div>
+      <div class="d-none d-sm-block">
+      <i class="fa-regular fa-star-half-stroke"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      </div>
+      </div>
+    </div>
+    `;
   });
 };
 loadNewsCategories();
