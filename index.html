@@ -31,6 +31,9 @@
       .hover:hover {
         color: orangered;
       }
+      .message-color {
+        color: red;
+      }
       .img-size {
         width: 40px;
         height: 40px;
@@ -89,7 +92,7 @@
       <!-------------------- No News Found Message Starts Here ----------------->
       <section>
         <div id="no-news-message" class="mt-4 d-none">
-          <h3 class="text-center text-info">
+          <h3 class="text-center message-color">
             No News Found !! Please Try Again Later.
           </h3>
         </div>
@@ -107,9 +110,11 @@
         </div>
       </section>
       <!-------------------------------- Spinner Ends Here------------------ -->
+      <!----------------------- News Details Container Stay Here----------- -->
       <section class="m-5">
         <div id="news-details-container" class="row g-lg-3 g-3"></div>
       </section>
+      <!----------------------- News Details Container Ends Here----------- -->
       <!--------------------------- News Details Modal Start Here ------------->
       <section>
         <!-- Modal -->
@@ -117,7 +122,7 @@
           class="modal fade"
           id="newsModal"
           tabindex="-1"
-          aria-labelledby="exampleModalLabel"
+          aria-labelledby="newsModalLabel"
           aria-hidden="true"
         >
           <div class="modal-dialog">

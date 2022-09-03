@@ -4,15 +4,13 @@ const loadNewsCategories = () => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayNewsCategories(data.data.news_category))
-    .catch( error => console.log(error))
+    .catch((error) => console.log(error));
 };
 
 // Display News Categories......................................................
 const displayNewsCategories = (newses) => {
-  // console.log(newses);
   const newsContainer = document.getElementById("news-container");
   newses.forEach((news) => {
-    // console.log(news);
     const newsSpan = document.createElement("span");
     newsSpan.classList.add("mx-3");
     newsSpan.innerHTML = `
@@ -36,12 +34,11 @@ const loadNewsDetails = (id) => {
 
 // Display News Details..........................................................
 const displayNewsDetails = (newses) => {
-  // console.log(newses);
   // Sorting With View----------------------------------------------------------
-  console.log(newses);
   newses.sort((a, b) => {
     return b.total_view - a.total_view;
   });
+
   // Total News.................................................................
   const newsLength = document.getElementById("news-length");
   newsLength.innerText = `${newses.length} Newses found for This Category`;
@@ -54,47 +51,47 @@ const displayNewsDetails = (newses) => {
     newsMessage.classList.add("d-none");
   }
 
-  //   Finds and Sets a Single news
+  //   Finds news Container------------------------------------------------------
   const newsDetailsContainer = document.getElementById(
     "news-details-container"
   );
   newsDetailsContainer.textContent = "";
   newses.forEach((news) => {
-    // console.log(news);
     const newsDiv = document.createElement("div");
     newsDiv.classList.add("col-lg-12", "card", "col-12");
 
     // Set The News With Inner HTML............................................
     newsDiv.innerHTML = `
-      <div class="row g-0  align-items-center">
-    <div class="col-md-4 col-lg-3">
-      <img src="${
-        news.thumbnail_url
-      }" class="img-fluid w-100 height-control rounded-start" alt="...">
-    </div>
-    <div class="col-md-8 col-lg-9">
-      <div class="card-body">
-        <h6 class="card-title">${news.title}</h6>
-        <p class="card-text">${news.details.slice(0, 260)}...</p>
-    <div class="d-flex align-items-center justify-content-between">
-        <div>
-        <div class="d-flex align-items-center">
-        <div>
-        <img class="img-thumbnail rounded-5 img-fluid img-size" src = "${
-          news.author.img
-        }">
+    <div class="row g-0  align-items-center">
+      <div class="col-md-4 col-lg-3">
+        <img src="${
+          news.thumbnail_url
+        }" class="img-fluid w-100 height-control rounded-start" alt="...">
+      </div>
+      <div class="col-md-8 col-lg-9">
+        <div class="card-body">
+          <h6 class="card-title">${news.title}</h6>
+          <p class="card-text">${news.details.slice(0, 260)}...</p>
+          <div class="d-flex align-items-center justify-content-between">
+          <div>
+          <div class="d-flex align-items-center">
+          <div>
+            <img class="img-thumbnail rounded-5 img-fluid img-size" src = "${
+              news.author.img
+            }">
+          </div>
+          <div class="ms-2">
+            <p class="mb-0">${
+              news.author.name ? news.author.name : "No Author Found"
+            }
+            </p>
+          </div>
         </div>
-        <div class="ms-2">
-        <p class="mb-0">${
-          news.author.name ? news.author.name : "Mr. No Data"
-        }</p>
-        </div>
-        </div>
-        </div> 
-
+      </div> 
       <div><i class="fa-regular fa-eye"></i><span class="ms-2">${
         news.total_view ? news.total_view : "No view"
-      }</span></div>
+      }</span>
+      </div>
       <div class="d-none d-sm-block">
       <i class="fa-regular fa-star-half-stroke"></i>
       <i class="fa-regular fa-star"></i>
@@ -107,11 +104,8 @@ const displayNewsDetails = (newses) => {
         news._id
       }')"></i>
       </div>
-      
-      
       </div>
     </div>
-    
     </div>
   </div> 
     `;
@@ -132,8 +126,7 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
-
-// Load Modal News..............................................................
+// Load Modal News Details......................................................
 const loadNewsDetailsModal = (id) => {
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   fetch(url)
@@ -142,18 +135,15 @@ const loadNewsDetailsModal = (id) => {
     .catch((error) => console.log(error));
 };
 
-// Display Modal News...........................................................
+// Display Modal News Details...................................................
 const displayModalNewsDetails = (newses) => {
-  // console.log(newses);
   newses.forEach((news) => {
-    console.log(news);
     const newsModalTitle = document.getElementById("newsModalLabel");
     newsModalTitle.innerText = `${news.title}`;
     const newsModalDetails = document.getElementById("news-details-modal");
     newsModalDetails.innerText = `${news.details}`;
   });
 };
-// loadNewsDetailsModal();
 loadNewsCategories();
 
 // Go to Blog Page--------------------------------------------------------------
